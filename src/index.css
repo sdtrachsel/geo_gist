@@ -2,9 +2,28 @@ body {
   margin: 0;
   padding: 25px;
   box-sizing: border-box;
+  background-color: #041b2b;
+  color: #0e344c;
 }
 
+.logo{
+  height: 125px;
+}
 
+.picker-wrapper{
+  margin-top: 25px;
+}
+
+.picker-label{
+  padding-top: 25px;
+  padding-right: 10px;
+  font-size: 1.25rem;
+  color: #cfd3d6;
+}
+
+.picker-select{
+  height: 1.5rem;
+}
 
 .articles-display{
   margin: 20px 0;
@@ -16,9 +35,10 @@ body {
 }
 
 .card{
+  background-color: #cfd3d6 ;
   width: 90%;
   min-height: fit-content;
-  border: black 2px solid;
+  border: #cfd3d6 2px solid;
   transition: .5s;
   border-radius: 30px;
   padding: 15px;
@@ -26,7 +46,13 @@ body {
 }
 
 .card:hover{
-  border: black 6px solid;
+  border: #48a9de 6px solid;
+}
+
+.card-source{
+  color: #2a7aa7;
+  font-style: italic;
+  font-size: 1.15rem;
 }
 
 .card-img{
@@ -48,7 +74,7 @@ body {
 .modal-wrapper{
   width: 75%;
   height: 85%;
-  background-color: white;
+  background-color: #cfd3d6 ;
   border: black 2px solid;
   border-radius: 30px;
   display: flex;
@@ -58,11 +84,12 @@ body {
 }
 
 .modal{
+  background-color: #cfd3d6 ;
   overflow-x: hidden;
   overflow-y: auto;
   width: 98%;
   height: 85%;
-  background-color: white;
+
   display: flex;
   flex-direction: column;
 }

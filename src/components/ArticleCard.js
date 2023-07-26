@@ -7,7 +7,7 @@ export const ArticleCard = ({ article, selectArticle }) => {
     <article className="card" onClick={() => selectArticle(article)}>
       <h2>{title}</h2>
       <div>
-        <p>{source.name}</p>
+        <p className="card-source">{source.name}</p>
         <p>{publishedAt}</p>
       </div>
       <p>{description}</p>

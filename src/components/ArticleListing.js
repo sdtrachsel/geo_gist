@@ -14,7 +14,7 @@ export const ArticleListing = ({ articles, setArticles }) => {
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError]= useState(false);
+  const [error, setError] = useState(false);
 
   const openModal = (article) => {
     setSelectedArticle(article);
@@ -35,7 +35,6 @@ export const ArticleListing = ({ articles, setArticles }) => {
   useEffect(() => {
     getArticles(selectedCountry)
       .then(data => {
-        console.log(data)
         setArticles(cleanArticles(data.articles))
         setIsLoading(false)
       })
@@ -48,19 +47,21 @@ export const ArticleListing = ({ articles, setArticles }) => {
 
 
   return (
-    error? <Error />:
-    <main>
-      <CountryPicker
-        selectedCountry={selectedCountry}
-        setSelectedCountry={setSelectedCountry}
-      />
-      <section className="articles-display">
-        {createArticleCards()}
-      </section>
-      <Modal modalOpen={modalOpen} closeModal={() => setModalOpen(false)}>
-        <Article article={selectedArticle} />
-      </Modal>
-    </main>
+    error ? <Error /> :
+      <main>
+        <section className="picker-wrapper">
+          <CountryPicker
+            selectedCountry={selectedCountry}
+            setSelectedCountry={setSelectedCountry}
+          />
+        </section>
+        <section className="articles-display">
+          {createArticleCards()}
+        </section>
+        <Modal modalOpen={modalOpen} closeModal={() => setModalOpen(false)}>
+          <Article article={selectedArticle} />
+        </Modal>
+      </main>
 
   )
 }
