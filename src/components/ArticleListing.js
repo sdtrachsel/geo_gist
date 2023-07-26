@@ -5,7 +5,7 @@ import { cleanArticles } from "../utlis";
 import { CountryPicker } from "./CountryPicker";
 import { ArticleCard } from "./ArticleCard";
 import { Article } from './Article';
-import {Modal} from './Modal';
+import { Modal } from './Modal';
 
 
 import { mockUSA } from "../mock-data";
@@ -25,9 +25,9 @@ export const ArticleListing = ({ articles, setArticles }) => {
       return <div>loading</div>
     }
     const articleCards = articles.map((art) => {
-      return <ArticleCard key={art.id} article={art} onArticleSelect={openModal} />
+      return <ArticleCard key={art.id} article={art} selectArticle={openModal} />
     })
-  
+
     return articleCards
   }
 
@@ -54,9 +54,9 @@ export const ArticleListing = ({ articles, setArticles }) => {
       <section className="articles-display">
         {createArticleCards()}
       </section>
-      <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
-      <Article article={selectedArticle} />
-    </Modal>
+      <Modal modalOpen={modalOpen} closeModal={() => setModalOpen(false)}>
+        <Article article={selectedArticle} />
+      </Modal>
     </main>
 
   )
