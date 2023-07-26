@@ -1,5 +1,4 @@
 export const countryOptions = [
-  { code: 'all', country: 'All' },
   { code: 'ae', country: 'United Arab Emirates' },
   { code: 'ar', country: 'Argentina' },
   { code: 'at', country: 'Austria' },

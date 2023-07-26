@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const cleanTitle = (title) => {
   const dashIndex = title.lastIndexOf('-');
   if (dashIndex !== -1) {
@@ -28,8 +30,9 @@ const cleanImageUrl = (urlToImage) => {
 }
 
 export const cleanArticles = (articles) => {
-  return articles.map(article => ({
+  return articles.map((article) => ({
     ...article,
+    id: uuidv4(),
     title: cleanTitle(article.title),
     publishedAt: formatDate(article.publishedAt),
     urlToImage: cleanImageUrl(article.urlToImage)

@@ -1,16 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const ArticleCard = ({ title, source, date, urlToImage, description }) => {
-
+export const ArticleCard = ({ article, selectArticle }) => {
+  const { title, source, date, description, urlToImage } = article;
   return (
-    <article className="card">
+
+    <article className="card" onClick={() => selectArticle(article)}>
+      <h2>{title}</h2>
       <div>
-        <h2>{title}</h2>
         <p>{source.name}</p>
         <p>{date}</p>
       </div>
-      <img className="card-img" src={urlToImage} alt="" />
       <p>{description}</p>
+      <img className="card-img" src={urlToImage} alt={title} />
     </article>
+
   )
 }

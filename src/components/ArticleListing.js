@@ -1,30 +1,37 @@
-import React, {useState, useEffect} from "react";
-import { CountryPicker } from "./CountryPicker";
-import { ArticleCard } from "./ArticleCard";
+import React, { useState, useEffect } from "react";
 import { getArticles } from "../api-calls";
 import { cleanArticles } from "../utlis";
+
+import { CountryPicker } from "./CountryPicker";
+import { ArticleCard } from "./ArticleCard";
+import { Article } from './Article';
+import {Modal} from './Modal';
+
+
 import { mockUSA } from "../mock-data";
 
-export const ArticleListing = () => {
+export const ArticleListing = ({ articles, setArticles }) => {
   const [selectedCountry, setSelectedCountry] = useState('us');
-  const [articles, setArticles] = useState([]);
-  const [selectedArticle, setSeletedArticle] = useState('')
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const articlesView = articles.map((art, index) => {
-   return <ArticleCard key={index+1} title={art.title} source={art.source} date={art.publishedAt} urlToImage={art.urlToImage} description={art.description}/>
-  })
+  const openModal = (article) => {
+    setSelectedArticle(article);
+    setModalOpen(true);
+  }
 
-  // <article>
-  //     <div>
-  //     <h2>{title}</h2>
-  //     <p>{source}</p>
-  //     <p>{date}</p>
-  //     </div>
-  //     <img src={urlToImage} alt=""/>
-  //     <p>{desciption}</p>
-  //   </article>
+  const createArticleCards = () => {
+    if (!articles) {
+      return <div>loading</div>
+    }
+    const articleCards = articles.map((art) => {
+      return <ArticleCard key={art.id} article={art} onArticleSelect={openModal} />
+    })
+  
+    return articleCards
+  }
 
-  useEffect(()=>{
+  useEffect(() => {
     setArticles(cleanArticles(mockUSA))
 
     // getArticles(selectedCountry)
@@ -38,16 +45,18 @@ export const ArticleListing = () => {
   }, [selectedCountry])
 
 
-  return(
+  return (
     <main>
-      <CountryPicker 
-        selectedCountry={selectedCountry} 
+      <CountryPicker
+        selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
-        />
-        <section className="articles-display">
-        {articlesView }
-
-        </section>
+      />
+      <section className="articles-display">
+        {createArticleCards()}
+      </section>
+      <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
+      <Article article={selectedArticle} />
+    </Modal>
     </main>
 
   )
