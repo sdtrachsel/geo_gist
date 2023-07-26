@@ -29,12 +29,19 @@ const cleanImageUrl = (urlToImage) => {
   return urlToImage;
 }
 
+const cleanContent=(article) => {
+  if(article.content){
+    return article.content.replace(/ \[\+\d+ chars\]$/, '');
+  }
+}
+
 export const cleanArticles = (articles) => {
   return articles.map((article) => ({
     ...article,
     id: uuidv4(),
     title: cleanTitle(article.title),
     publishedAt: formatDate(article.publishedAt),
-    urlToImage: cleanImageUrl(article.urlToImage)
+    urlToImage: cleanImageUrl(article.urlToImage),
+    content:cleanContent(article)
   }));
 }

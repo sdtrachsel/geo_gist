@@ -4,31 +4,7 @@ body {
   box-sizing: border-box;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.modal{
-  
-  overflow-x: hidden;
-  overflow-y: auto;
-  width: 75%;
-  height: 85%;
-  background-color: white;
-  border: black 2px solid;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-
-}
 
 .articles-display{
   margin: 20px 0;
@@ -43,10 +19,68 @@ body {
   width: 90%;
   min-height: fit-content;
   border: black 2px solid;
+  transition: .5s;
   border-radius: 30px;
   padding: 15px;
+  cursor: pointer;
+}
+
+.card:hover{
+  border: black 6px solid;
 }
 
 .card-img{
+  width: 100%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper{
+  width: 75%;
+  height: 85%;
+  background-color: white;
+  border: black 2px solid;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal{
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 98%;
+  height: 85%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-modal-btn{
+  align-self: flex-end;
+  margin: 10px 35px;
+}
+
+.article{
+  padding: 15px;
+}
+
+.art-source{
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.art-img{
   width: 100%;
 }

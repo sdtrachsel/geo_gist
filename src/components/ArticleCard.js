@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const ArticleCard = ({ article, selectArticle }) => {
   const { title, source, publishedAt, description, urlToImage } = article;

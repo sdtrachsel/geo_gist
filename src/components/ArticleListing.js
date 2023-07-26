@@ -6,14 +6,15 @@ import { CountryPicker } from "./CountryPicker";
 import { ArticleCard } from "./ArticleCard";
 import { Article } from './Article';
 import { Modal } from './Modal';
+import { Error } from './Error'
 
-
-import { mockUSA } from "../mock-data";
 
 export const ArticleListing = ({ articles, setArticles }) => {
   const [selectedCountry, setSelectedCountry] = useState('us');
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError]= useState(false);
 
   const openModal = (article) => {
     setSelectedArticle(article);
@@ -21,7 +22,7 @@ export const ArticleListing = ({ articles, setArticles }) => {
   }
 
   const createArticleCards = () => {
-    if (!articles) {
+    if (isLoading) {
       return <div>loading</div>
     }
     const articleCards = articles.map((art) => {
@@ -32,20 +33,22 @@ export const ArticleListing = ({ articles, setArticles }) => {
   }
 
   useEffect(() => {
-    setArticles(cleanArticles(mockUSA))
-
-    // getArticles(selectedCountry)
-    //   .then(data => {
-    //     setArticles(data)
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
+    getArticles(selectedCountry)
+      .then(data => {
+        console.log(data)
+        setArticles(cleanArticles(data.articles))
+        setIsLoading(false)
+      })
+      .catch(err => {
+        setIsLoading(false)
+        setError(true)
+      })
 
   }, [selectedCountry])
 
 
   return (
+    error? <Error />:
     <main>
       <CountryPicker
         selectedCountry={selectedCountry}
