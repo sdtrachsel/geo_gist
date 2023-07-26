@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { CountryPicker } from "./CountryPicker";
 import { ArticleCard } from "./ArticleCard";
 import { getArticles } from "../api-calls";
+import { cleanArticles } from "../utlis";
 import { mockUSA } from "../mock-data";
 
 export const ArticleListing = () => {
@@ -10,7 +11,7 @@ export const ArticleListing = () => {
   const [selectedArticle, setSeletedArticle] = useState('')
 
   const articlesView = articles.map((art, index) => {
-   return <ArticleCard key={index+1} title={art.title} source={art.source} date={art.publishedAt} urlToImage={art.urlToImage} desciption={art.desciption}/>
+   return <ArticleCard key={index+1} title={art.title} source={art.source} date={art.publishedAt} urlToImage={art.urlToImage} description={art.description}/>
   })
 
   // <article>
@@ -24,7 +25,7 @@ export const ArticleListing = () => {
   //   </article>
 
   useEffect(()=>{
-    setArticles(mockUSA)
+    setArticles(cleanArticles(mockUSA))
 
     // getArticles(selectedCountry)
     //   .then(data => {
@@ -43,7 +44,10 @@ export const ArticleListing = () => {
         selectedCountry={selectedCountry} 
         setSelectedCountry={setSelectedCountry}
         />
+        <section className="articles-display">
         {articlesView }
+
+        </section>
     </main>
 
   )

@@ -1,16 +1,16 @@
 import React from "react";
 
-export const ArticleCard = ({ title, source, date, urlToImage, desciption }) => {
+export const ArticleCard = ({ title, source, date, urlToImage, description }) => {
 
   return (
-    <article>
+    <article className="card">
       <div>
         <h2>{title}</h2>
         <p>{source.name}</p>
         <p>{date}</p>
       </div>
-      <img src={urlToImage} alt="" />
-      <p>{desciption}</p>
+      <img className="card-img" src={urlToImage} alt="" />
+      <p>{description}</p>
     </article>
   )
 }
