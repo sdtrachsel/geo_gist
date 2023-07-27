@@ -41,7 +41,7 @@ Modal
 > - Fork this to your GitHub account. 
 > - In your forked respository, click the `code` drop-down menu and copy the SSH key.
 > - On your local machine, open the terminal using  `⌘ + space` + `terminal` and navigate to the location you'd like the repository directory cloned to. 
-> - Once you're there, run  `git clone [SSH Key] [meme-depot]` via the command line.
+> - Once you're there, run  `git clone [SSH Key] [geo-gist]` via the command line.
 > - Run `npm install`.
 
 > ### Opening the application 
