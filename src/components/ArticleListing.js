@@ -8,7 +8,6 @@ import { Article } from './Article';
 import { Modal } from './Modal';
 import { Error } from './Error'
 
-
 export const ArticleListing = ({ articles, setArticles }) => {
   const [selectedCountry, setSelectedCountry] = useState('us');
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -33,17 +32,19 @@ export const ArticleListing = ({ articles, setArticles }) => {
     return articleCards
   }
 
-  useEffect(() => {
-    getArticles(selectedCountry)
-      .then(data => {
-        setArticles(cleanArticles(data.articles))
-        setIsLoading(false)
-      })
-      .catch(err => {
-        setIsLoading(false)
-        setError(true)
-      })
+  const fetchArticles = async () => {
+    try {
+      const data = await getArticles(selectedCountry);
+      setArticles(cleanArticles(data.articles));
+      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);
+      setError(true);
+    }
+  }
 
+  useEffect(() => {
+    fetchArticles();
   }, [selectedCountry])
 
 
