@@ -44,6 +44,7 @@ export const ArticleListing = ({ articles, setArticles }) => {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line
     fetchArticles();
   }, [selectedCountry])
 

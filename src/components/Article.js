@@ -12,7 +12,7 @@ export const Article = ({ article }) => {
 
       <p>{content}</p>
       <a href={url} target="_blank" rel="noopener noreferrer" className="source-button">
-        Read the rest at {source.name}
+        Complete article at {source.name}
       </a>
     </div>
   )
@@ -29,5 +29,5 @@ Article.propTypes = {
     content: PropTypes.string.isRequired,
     urlToImage: PropTypes.string,
     url: PropTypes.string.isRequired,
-  }).isRequired
+  })
 };
