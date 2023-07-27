@@ -1,16 +1,12 @@
-// import logo from './logo.svg';
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Header } from './Header';
 import { ArticleListing } from './ArticleListing';
-import { Article } from './Article';
-import { Error } from './Error'
+import { NotFound } from './NotFound';
+
 
 function App() {
   const [articles, setArticles] = useState([]);
-
-
   return (
     <div className="App">
       <Header />
@@ -21,7 +17,7 @@ function App() {
             setArticles={setArticles}
           />} exact
         />
-        <Route path="*" render={() => <Error />} />
+        <Route path="*" render={() => <NotFound />} />
       </Switch>
     </div>
   );

@@ -1,20 +1,19 @@
 import React from 'react';
-import { Article } from './Article';
+
 
 export const Modal = ({ modalOpen, closeModal, children }) => {
-  console.log('modal rendered')
   if (!modalOpen) {
     return null;
   }
 
   return (
-
     <div className="modal-overlay">
-      <div className='modal'>
+      <div className="modal-wrapper">
         <button className="close-modal-btn" onClick={closeModal}>Close</button>
-        {children}
+        <div className='modal'>
+          {children}
+        </div>
       </div>
-
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const ArticleCard = ({ article, selectArticle }) => {
   const { title, source, publishedAt, description, urlToImage } = article;
@@ -8,7 +7,7 @@ export const ArticleCard = ({ article, selectArticle }) => {
     <article className="card" onClick={() => selectArticle(article)}>
       <h2>{title}</h2>
       <div>
-        <p>{source.name}</p>
+        <p className="card-source">{source.name}</p>
         <p>{publishedAt}</p>
       </div>
       <p>{description}</p>
