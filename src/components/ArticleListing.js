@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getArticles } from "../api-calls";
 import { cleanArticles } from "../utlis";
-
 import { CountryPicker } from "./CountryPicker";
 import { ArticleCard } from "./ArticleCard";
 import { Article } from './Article';
@@ -25,6 +24,7 @@ export const ArticleListing = ({ articles, setArticles }) => {
     if (isLoading) {
       return <div>loading</div>
     }
+
     const articleCards = articles.map((art) => {
       return <ArticleCard key={art.id} article={art} selectArticle={openModal} />
     })

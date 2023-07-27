@@ -9,7 +9,12 @@ export const CountryPicker = ({ selectedCountry, setSelectedCountry }) => {
   return (
     <>
     <label className="picker-label" htmlFor="country">Choose a country:</label>
-    <select className="picker-select" name="country" id="country" value={selectedCountry} onChange={e => setSelectedCountry(e.target.value)}>
+    <select className="picker-select" 
+      name="country" 
+      id="country" 
+      value={selectedCountry} 
+      onChange={e => setSelectedCountry(e.target.value)}
+    >
       {countries}
     </select>
     </>

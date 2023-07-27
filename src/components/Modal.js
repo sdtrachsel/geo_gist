@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export const Modal = ({ modalOpen, closeModal, children }) => {
   if (!modalOpen) {
     return null;

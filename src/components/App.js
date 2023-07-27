@@ -1,5 +1,4 @@
-// import logo from './logo.svg';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Header } from './Header';
 import { ArticleListing } from './ArticleListing';
