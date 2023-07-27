@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import PropTypes from 'prop-types';
 import { countryOptions } from "../country-options";
 
 export const CountryPicker = ({ selectedCountry, setSelectedCountry }) => {
@@ -20,3 +21,8 @@ export const CountryPicker = ({ selectedCountry, setSelectedCountry }) => {
     </>
   )
 }
+
+CountryPicker.propTypes = {
+  selectedCountry: PropTypes.string.isRequired,
+  setSelectedCountry: PropTypes.func.isRequired,
+};

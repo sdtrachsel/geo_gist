@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export const Article = ({ article }) => {
   const { title, source, publishedAt, description, content, urlToImage, url } = article;
@@ -10,9 +11,23 @@ export const Article = ({ article }) => {
         <p>{publishedAt}</p>
 
       <p>{content}</p>
-      <a href={article.url} target="_blank" rel="noopener noreferrer" className="source-button">
+      <a href={url} target="_blank" rel="noopener noreferrer" className="source-button">
         Read the rest at {source.name}
       </a>
     </div>
   )
 }
+
+Article.propTypes = {
+  article: PropTypes.shape({
+    source: PropTypes.shape({
+      name: PropTypes.string
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    publishedAt: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    content: PropTypes.string.isRequired,
+    urlToImage: PropTypes.string,
+    url: PropTypes.string.isRequired,
+  }).isRequired
+};

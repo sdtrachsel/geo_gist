@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import { getArticles } from "../api-calls";
 import { cleanArticles } from "../utlis";
 import { CountryPicker } from "./CountryPicker";
@@ -65,3 +66,21 @@ export const ArticleListing = ({ articles, setArticles }) => {
 
   )
 }
+
+ArticleListing.propTypes = {
+  articles: PropTypes.arrayOf(PropTypes.shape({
+    source: PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string
+    }),
+    author: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    url: PropTypes.string,
+    urlToImage: PropTypes.string,
+    publishedAt: PropTypes.string,
+    content: PropTypes.string,
+    id: PropTypes.string
+  })),
+  setArticles: PropTypes.func.isRequired
+};
