@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 export const Modal = ({ modalOpen, closeModal, children }) => {
   if (!modalOpen) {
@@ -17,3 +17,9 @@ export const Modal = ({ modalOpen, closeModal, children }) => {
     </div>
   )
 }
+
+Modal.propTypes = {
+  modalOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  children: PropTypes.node,
+};
