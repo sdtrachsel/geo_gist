@@ -6,12 +6,12 @@ export const ArticleCard = ({ article, selectArticle }) => {
   
   return (
     <article className="card" onClick={() => selectArticle(article)}>
-      <h2>{title}</h2>
+      <h2 className="card-title">{title}</h2>
       <div>
         <p className="card-source">{source.name}</p>
-        <p>{publishedAt}</p>
+        <p className="card-date">{publishedAt}</p>
       </div>
-      <p>{description}</p>
+      <p className="card-desc">{description}</p>
       <img className="card-img" src={urlToImage} alt={title} />
     </article>
 

@@ -26,7 +26,7 @@ Article.propTypes = {
     title: PropTypes.string.isRequired,
     publishedAt: PropTypes.string.isRequired,
     description: PropTypes.string,
-    content: PropTypes.string.isRequired,
+    content: PropTypes.string,
     urlToImage: PropTypes.string,
     url: PropTypes.string.isRequired,
   })

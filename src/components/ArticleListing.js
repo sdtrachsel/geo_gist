@@ -35,7 +35,7 @@ export const ArticleListing = ({ articles, setArticles }) => {
   const fetchArticles = async () => {
     try {
       const data = await getArticles(selectedCountry);
-      setArticles(cleanArticles(data.articles));
+       setArticles(cleanArticles(data.articles));
       setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
